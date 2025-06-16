@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventNomous - AI-Powered Event & Fintech Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #8A2BE2, #4B0082);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-color: #000000;
+            background-image: radial-gradient(circle at 1px 1px, #333 1px, transparent 0);
+            background-size: 25px 25px;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #8A2BE2;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #8A2BE2;
+        }
+        #chatbot-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+        #chatbot-window {
+            height: 70vh;
+            max-height: 500px;
+            width: 90vw;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold gradient-text">EventNomous</h1>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-gray-300 hover:text-white">About</a>
+                <a href="#services" class="text-gray-300 hover:text-white">Services</a>
+                <a href="#features" class="text-gray-300 hover:text-white">Features</a>
+                <a href="#contact" class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-lg cta-button">Contact Us</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#about" class="block text-gray-300 hover:text-white py-2">About</a>
+            <a href="#services" class="block text-gray-300 hover:text-white py-2">Services</a>
+            <a href="#features" class="block text-gray-300 hover:text-white py-2">Features</a>
+            <a href="#contact" class="block bg-purple-700 hover:bg-purple-800 text-white font-semibold mt-2 py-2 px-4 rounded-lg text-center">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero-bg">
+        <section id="home" class="container mx-auto px-6 py-24 md:py-32 text-center">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                Emerging the World of Events with <span class="gradient-text">AI & FinTech</span>
+            </h2>
+            <p class="mt-6 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+                EventNomous revolutionizes event management by integrating cutting-edge AI, immersive VR/AR experiences, and innovative financing solutions into a single, seamless platform.
+            </p>
+            <div class="mt-10">
+                <a href="#services" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-8 rounded-full text-lg cta-button">Discover Our Services</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">The Evolution of Event Planning</h3>
+                    <p class="text-gray-400 mt-2">From manual and costly processes to a smart, digitized, and secure future.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-red-900/10 border border-red-500/30 p-8 rounded-xl">
+                        <h4 class="text-2xl font-semibold text-red-400 mb-4">Before EventNomous</h4>
+                        <ul class="space-y-3 text-gray-300 list-disc list-inside">
+                            <li>Limited options for desired locations.</li>
+                            <li>Slow, tedious manual processes prone to error.</li>
+                            <li>Costly and inaccessible for many.</li>
+                            <li>Insecure and complex payment methods.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-900/10 border border-green-500/30 p-8 rounded-xl">
+                        <h4 class="text-2xl font-semibold text-green-400 mb-4">After EventNomous</h4>
+                        <ul class="space-y-3 text-gray-300 list-disc list-inside">
+                            <li>Smart, AI-driven one-stop solution.</li>
+                            <li>Immersive AR/VR for venue visualization.</li>
+                            <li>Secure, digitized, and transparent financial dealings.</li>
+                            <li>Accessible financing and simplified payments.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">A New Dimension of Event Management</h3>
+                    <p class="text-gray-400 mt-2">We offer a comprehensive suite of services powered by next-gen technology.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="feature-card p-8">
+                        <h4 class="text-xl font-bold text-white mb-3">AI-Powered Event Planning</h4>
+                        <p class="text-gray-400">Our intelligent algorithms help you plan every detail, from vendor selection to budget optimization, ensuring a flawless event.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="feature-card p-8">
+                        <h4 class="text-xl font-bold text-white mb-3">Immersive VR/AR Experiences</h4>
+                        <p class="text-gray-400">Visualize event setups, decor, and venue layouts in stunning virtual and augmented reality before you book.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="feature-card p-8">
+                        <h4 class="text-xl font-bold text-white mb-3">Innovative Financing Solutions</h4>
+                        <p class="text-gray-400">Access flexible 'Pay Later' options and financing for caterers, decorators, and managers to ensure smooth cash flow.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="feature-card p-8">
+                        <h4 class="text-xl font-bold text-white mb-3">Comprehensive Management</h4>
+                        <p class="text-gray-400">A one-stop solution for venue booking, catering, decorations, and entertainment, streamlining the entire process.</p>
+                    </div>
+                    <!-- Service Card 5 -->
+                    <div class="feature-card p-8">
+                        <h4 class="text-xl font-bold text-white mb-3">Secure Payment Gateway</h4>
+                        <p class="text-gray-400">Easily manage all transactions with our secure, encrypted payment system. Customizable schedules and integrated invoicing.</p>
+                    </div>
+                    <!-- Service Card 6 -->
+                    <div class="feature-card p-8">
+                        <h4 class="text-xl font-bold text-white mb-3">24/7 AI Chatbot Support</h4>
+                        <p class="text-gray-400">Get instant assistance anytime. Our AI chatbot can help with application support, queries, and guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">What You Get With EventNomous</h3>
+                    <p class="text-gray-400 mt-2">A platform designed for reliability, security, and performance.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-purple-700/20 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-white">High Security System</h4>
+                            <p class="text-gray-400">Your data is secured with next-level encryption and strict compliance to maintain cybersecurity.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-purple-700/20 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg></div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-white">Compatible On All Devices</h4>
+                            <p class="text-gray-400">A seamless user experience whether you're on a desktop, tablet, or smartphone.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-purple-700/20 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5z" /></svg></div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-white">Performance Management</h4>
+                            <p class="text-gray-400">Utilize a powerful dashboard with analytics to track event success and business outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-purple-700/20 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V10a2 2 0 012-2h8z" /></svg></div>
+                        <div>
+                            <h4 class="font-semibold text-lg text-white">Application Support</h4>
+                            <p class="text-gray-400">Get 24x7 tech support through our integrated AI Chatbot for any application-related questions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Let's Create Something Amazing</h3>
+                    <p class="text-gray-400 mt-2">Have a question or want to get started? Reach out to us.</p>
+                </div>
+                <div class="max-w-2xl mx-auto bg-black/50 p-8 rounded-2xl border border-gray-800">
+                    <form>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <input type="text" placeholder="Your Name" class="w-full bg-gray-900 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            <input type="email" placeholder="Your Email" class="w-full bg-gray-900 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        </div>
+                        <div class="mt-6">
+                             <input type="text" placeholder="Subject" class="w-full bg-gray-900 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                        </div>
+                        <div class="mt-6">
+                            <textarea placeholder="Your Message" rows="5" class="w-full bg-gray-900 text-white p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                        </div>
+                        <div class="mt-6 text-center">
+                            <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white font-bold py-3 px-8 rounded-full text-lg cta-button">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2024 EventNomous. All Rights Reserved.</p>
+            <p class="mt-2">Emerging the world of Events</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-white">YouTube</a>
+                <a href="https://www.linkedin.com/company/eventnomous/" class="hover:text-white" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="#" class="hover:text-white">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot -->
+    <div id="chatbot-container">
+        <!-- Chatbot Button -->
+        <button id="chatbot-toggle" class="bg-purple-700 text-white p-4 rounded-full shadow-lg hover:bg-purple-800 transition-transform transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+        </button>
+
+        <!-- Chatbot Window -->
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 bg-gray-900 border border-gray-700 rounded-2xl shadow-2xl flex flex-col transition-all duration-300">
+            <!-- Header -->
+            <div class="flex items-center justify-between p-4 bg-gray-800 rounded-t-2xl">
+                <h3 class="text-lg font-semibold text-white">EventNomous AI Assistant</h3>
+                <button id="chatbot-close" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <!-- Chat Area -->
+            <div id="chat-area" class="flex-1 p-4 overflow-y-auto">
+                <!-- Messages will be appended here -->
+                <div class="flex justify-start mb-4">
+                    <div class="bg-purple-700 text-white p-3 rounded-lg max-w-xs">
+                        Hello! I'm the EventNomous AI assistant. How can I help you today? You can ask me about our services, features, or pricing.
+                    </div>
+                </div>
+            </div>
+            <!-- Input Area -->
+            <div class="p-4 border-t border-gray-700">
+                <div class="flex space-x-2">
+                    <input id="chat-input" type="text" placeholder="Type your message..." class="w-full bg-gray-800 text-white p-3 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    <button id="chat-send" class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Chatbot Toggle
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatArea = document.getElementById('chat-area');
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('hidden');
+            chatbotToggle.classList.toggle('hidden');
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.add('hidden');
+            chatbotToggle.classList.remove('hidden');
+        });
+
+        chatSend.addEventListener('click', handleUserMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserMessage();
+            }
+        });
+
+        function handleUserMessage() {
+            const userInput = chatInput.value.trim();
+            if (userInput === '') return;
+
+            // Display user message
+            appendMessage(userInput, 'user');
+            chatInput.value = '';
+
+            // Generate and display bot response
+            setTimeout(() => {
+                const botResponse = getBotResponse(userInput);
+                appendMessage(botResponse, 'bot');
+            }, 1000);
+        }
+
+        function appendMessage(message, sender) {
+            const messageWrapper = document.createElement('div');
+            messageWrapper.classList.add('flex', 'mb-4');
+
+            const messageBubble = document.createElement('div');
+            messageBubble.classList.add('p-3', 'rounded-lg', 'max-w-xs');
+
+            if (sender === 'user') {
+                messageWrapper.classList.add('justify-end');
+                messageBubble.classList.add('bg-gray-700', 'text-white');
+            } else {
+                messageWrapper.classList.add('justify-start');
+                messageBubble.classList.add('bg-purple-700', 'text-white');
+            }
+            
+            messageBubble.textContent = message;
+            messageWrapper.appendChild(messageBubble);
+            chatArea.appendChild(messageWrapper);
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        function getBotResponse(userInput) {
+            const lcInput = userInput.toLowerCase();
+
+            if (lcInput.includes('hello') || lcInput.includes('hi')) {
+                return 'Hello there! How can I assist you with your event planning needs?';
+            }
+            if (lcInput.includes('service')) {
+                return 'We offer AI-Powered Event Planning, Immersive VR/AR Experiences, Innovative Financing Solutions, Comprehensive Management, a Secure Payment Gateway, and 24/7 AI Chatbot Support. Which one would you like to know more about?';
+            }
+            if (lcInput.includes('pricing') || lcInput.includes('cost')) {
+                return 'Our pricing is tailored to your needs. We have plans for individual users and businesses. For a detailed quote, please fill out our contact form!';
+            }
+            if (lcInput.includes('vr') || lcInput.includes('ar')) {
+                return 'Our immersive VR/AR feature allows you to take virtual tours of venues and visualize your event layout in 3D, helping you make the perfect choice from the comfort of your home.';
+            }
+            if (lcInput.includes('payment') || lcInput.includes('financing')) {
+                return 'EventNomous provides flexible "Pay Later" options and financing solutions for all event stakeholders. Our secure payment gateway simplifies all transactions, with customizable payment schedules and integrated invoicing.';
+            }
+            if (lcInput.includes('contact') || lcInput.includes('help')) {
+                return 'You can reach us by filling out the contact form on our website. For immediate assistance with the platform, I am here to help!';
+            }
+            if (lcInput.includes('bye')) {
+                return 'Goodbye! Feel free to reach out if you have more questions. Have a great day!';
+            }
+
+            return "I'm sorry, I'm not sure how to answer that. Could you try rephrasing? You can ask about our 'services', 'pricing', or 'features'.";
+        }
+    </script>
+</body>
+</html>
